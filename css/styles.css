@@ -5,15 +5,21 @@ h1 {
   line-height: 1.5;
 }
 
-/* #title {
+#title {
   color: #fff;
   background-color: #333F50;
-} */
+  height: 15 px;
+  align: center;
+  /* display: inline-block; */
+  text-align: center;
+  /* line-height: 1.5; */
+  /* padding: 7% 15%; */
+}
 .container-fluid {
-  padding: 3% 7%;
+  padding: 3%;
 }
 
-.title-contianers {
+.title-containers {
   position: relative;
   padding: 0;
   display: flex;
@@ -32,12 +38,8 @@ h1 {
 }
 
 .title-profile-pic {
-  width: 100%;
-  border-radius: 100%;
-  border-color: blue;
-  border-width: thick;
-  /* margin: 20px; */
-  /* height: auto; */
+  display: block;
+  margin: auto;
 }
 
 .title-links {
