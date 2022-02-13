@@ -1,11 +1,11 @@
 /* ColourPalletes:
    https://colorhunt.co/palette/1c658c398ab9d8d2cbeeeeee
    https://colorhunt.co/palette/1a374d4068826998abb1d0e0*/
-
 /* Title Section */
-body {
-  /* text-align: center; */
-}
+
+/* body{
+  background-color: #B1D0E0;
+} */
 
 h1 {
   font-family: 'Montserrat', sans-serif;
@@ -13,14 +13,25 @@ h1 {
   line-height: 1.5;
 }
 
+/* h2,h3,h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+  line-height: 1.5;
+} */
+
 a {
-  color: #D8D2CB;
+  color: #fff;
   margin-top: 100px;
+}
+
+p,li {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.1rem;
 }
 
 /* Navigation Bar */
 .navbar {
-  padding-bottom: 0 0 4.5rem;
+  /* padding-bottom: 0 0 4.5rem; */
   text-align: right;
 }
 
@@ -32,32 +43,33 @@ a {
 
 .nav-item {
   padding: 0 18px;
-
 }
 
 .nav-link {
   font-family: 'Montserrat', sans-serif;
-  font-style: 1.2rem;
+  font-size: 1.2rem;
 }
 
 #title {
   color: #fff;
   background-color: #1A374D;
-    /* 333F50 */
+  /* 333F50 */
   /* height: 15 px; */
-  align: center;
+  /* align: center; */
   /* display: inline-block; */
   /* text-align: center; */
   /* line-height: 1.5; */
   /* padding: 7% 15%; */
 }
+
 .container-fluid {
   padding: 3%;
 }
 
 .title-containers {
   position: relative;
-  padding: 0;
+  /* padding: 50px 0; */
+  padding-left: 100px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -85,8 +97,6 @@ a {
   /* position: absolute; */
 }
 
-
-
 /* Bottom Container */
 .bottom-container {
   background-color: #6998AB;
@@ -98,7 +108,7 @@ a {
 
 .bottom-container-name {
   font-size: 0.8rem;
-  color: #EEEEEE;
+  color: #fff;
   padding: 1% 0;
 }
 
