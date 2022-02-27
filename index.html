@@ -93,7 +93,7 @@
 			<!-- Contact -->
 			<article id="contact">
 				<h2 class="major">Contact</h2>
-				<form method="post" action="#">
+				<form method="post" action="mailto:charlbrill@gmail.com">
 					<div class="fields">
 						<div class="field half">
 							<label for="name">Name</label>
@@ -314,7 +314,8 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 
 				<section>
 					<h3 class="major">Form</h3>
-					<form method="post" action="#">
+
+					<form action="mailto:charlbrill@gmail.com" method="post">
 						<div class="fields">
 							<div class="field half">
 								<label for="demo-name">Name</label>
@@ -324,7 +325,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 								<label for="demo-email">Email</label>
 								<input type="email" name="demo-email" id="demo-email" value="" placeholder="jane@untitled.tld" />
 							</div>
-							<div class="field">
+							<!-- <div class="field">
 								<label for="demo-category">Category</label>
 								<select name="demo-category" id="demo-category">
 									<option value="">-</option>
@@ -349,7 +350,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 							<div class="field half">
 								<input type="checkbox" id="demo-human" name="demo-human" checked>
 								<label for="demo-human">Not a robot</label>
-							</div>
+							</div> -->
 							<div class="field">
 								<label for="demo-message">Message</label>
 								<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
@@ -358,6 +359,20 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 						<ul class="actions">
 							<li><input type="submit" value="Send Message" class="primary" /></li>
 							<li><input type="reset" value="Reset" /></li>
+
+							<!-- <form  method="post" enctype="text/plain">
+								Name:<br>
+								<input type="text" name="name"><br>
+								E-mail:<br>
+								<input type="text" name="mail"><br>
+								Comment:<br>
+								<input type="text" name="comment" size="50"><br><br>
+
+								<input type="submit" value="Send">
+								<input type="reset" value="Reset">
+
+							</form> -->
+
 						</ul>
 					</form>
 				</section>
