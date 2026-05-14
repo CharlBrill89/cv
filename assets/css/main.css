@@ -2050,7 +2050,7 @@ blockquote {
     display: none;
 }
 
-#header nav ul li.is-middle {
+#header nav.use-middle ul li.is-middle {
     border-left: solid 1px #ffffff;
 }
 
