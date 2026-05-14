@@ -1726,6 +1726,7 @@ input, select, textarea {
     cursor: pointer;
     outline: none;
     transition: opacity 0.2s ease-in-out;
+    position: relative;
 }
 
 .cb-job summary:hover {
@@ -1745,7 +1746,6 @@ input, select, textarea {
     grid-template-columns: 1fr;
     gap: 0.1rem 0;
     padding-right: 1.5rem;
-    position: relative;
 }
 
 .cb-job summary::after {
