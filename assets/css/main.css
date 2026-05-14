@@ -2043,6 +2043,17 @@ blockquote {
     }
 }
 
+/* --- Suppress use-middle nav behaviour (6 items = even, triggers vertical line through Education) --- */
+/* The theme JS adds use-middle + is-middle on even item counts. With 6 items this draws a line
+   through Education and removes its left border, causing overlapping lines. Suppress both effects. */
+#header nav.use-middle::after {
+    display: none;
+}
+
+#header nav ul li.is-middle {
+    border-left: solid 1px #ffffff;
+}
+
 /* === End custom CV additions === */
 
 /* --- Blog article cards --- */
