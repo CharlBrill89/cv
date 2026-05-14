@@ -2002,6 +2002,11 @@ blockquote {
     display: none !important;
 }
 
+/* Override #header > * { margin-top: 3.5rem } — ID selector wins the specificity battle */
+#header .cb-quickstats {
+    margin-top: 1.25rem;
+}
+
 .cb-quickstats a {
     color: inherit;
     border-bottom: none;
