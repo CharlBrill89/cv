@@ -1362,7 +1362,7 @@ input, select, textarea {
 
 				#header nav ul li a {
 					display: block;
-					min-width: 5.5rem;
+					min-width: 7rem;
 					height: 2.75rem;
 					line-height: 2.75rem;
 					padding: 0 0.75rem 0 0.75rem;
@@ -2032,26 +2032,11 @@ blockquote {
 /* Reduce item footprint so all 6 links stay on one row without wrapping */
 @media screen and (min-width: 481px) and (max-width: 736px) {
     #header nav ul li a {
-        min-width: 4rem;
-        padding: 0 0.45rem;
-        font-size: 0.65rem;
-        letter-spacing: 0.04rem;
+        min-width: 5rem;
+        padding: 0 0.5rem;
+        font-size: 0.62rem;
+        letter-spacing: 0.03rem;
     }
-    /* Hide the icon glyphs at this range — text labels are enough */
-    #header nav ul li a .icon {
-        display: none;
-    }
-}
-
-/* --- Suppress use-middle nav behaviour (6 items = even, triggers vertical line through Education) --- */
-/* The theme JS adds use-middle + is-middle on even item counts. With 6 items this draws a line
-   through Education and removes its left border, causing overlapping lines. Suppress both effects. */
-#header nav.use-middle::after {
-    display: none;
-}
-
-#header nav.use-middle ul li.is-middle {
-    border-left: solid 1px #ffffff;
 }
 
 /* === End custom CV additions === */
