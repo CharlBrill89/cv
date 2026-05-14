@@ -1139,7 +1139,8 @@ input, select, textarea {
 			-webkit-transition-delay: 0.75s;
 			-ms-transition-delay: 0.75s;
 			transition-delay: 0.75s;
-			background-image: linear-gradient(to top, rgba(19, 21, 25, 0.5), rgba(19, 21, 25, 0.5)), url("../../images/overlay.png");
+			/* Darkened overlay: stronger gradient so white text stays readable over the landscape photo */
+			background-image: linear-gradient(to top, rgba(10, 16, 30, 0.88), rgba(10, 16, 30, 0.70)), url("../../images/overlay.png");
 			background-size: auto,
  256px 256px;
 			background-position: center,
@@ -1158,11 +1159,13 @@ input, select, textarea {
 			-webkit-transition: -webkit-transform 0.325s ease-in-out, -webkit-filter 0.325s ease-in-out;
 			-ms-transition: -ms-transform 0.325s ease-in-out, -ms-filter 0.325s ease-in-out;
 			transition: transform 0.325s ease-in-out, filter 0.325s ease-in-out;
-			/* background-image: url("../../images/bg-laptop.jpg"); */
-			background-color: #778038;
-			background-position: center;
+			/* Dramatic mountain landscape from Unsplash — no download needed, served via CDN */
+			background-image: url("https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80");
+			background-color: #0a1628;
+			background-position: center center;
 			background-size: cover;
 			background-repeat: no-repeat;
+			background-attachment: fixed;
 			z-index: 1;
 		}
 
@@ -1359,13 +1362,13 @@ input, select, textarea {
 
 				#header nav ul li a {
 					display: block;
-					min-width: 6.5rem;
+					min-width: 5.5rem;
 					height: 2.75rem;
 					line-height: 2.75rem;
-					padding: 0 0.9rem 0 1rem;
+					padding: 0 0.75rem 0 0.75rem;
 					text-transform: uppercase;
-					letter-spacing: 0.12rem;
-					font-size: 0.75rem;
+					letter-spacing: 0.08rem;
+					font-size: 0.72rem;
 					border-bottom: 0;
 				}
 
@@ -1547,7 +1550,7 @@ input, select, textarea {
 			position: relative;
 			width: 40rem;
 			max-width: 100%;
-			background-color: rgba(27, 31, 34, 0.85);
+			background-color: rgba(27, 31, 34, 0.93);
 			border-radius: 4px;
 			opacity: 0;
 		}
@@ -1893,6 +1896,130 @@ input, select, textarea {
     .cb-badge small {
         margin-left: 0;
         width: 100%;
+    }
+}
+
+/* --- Colour scheme: deep navy & electric blue --- */
+
+:root {
+    --cb-accent: #4facfe;
+    --cb-accent-dark: #0066cc;
+    --cb-accent-glow: rgba(79, 172, 254, 0.15);
+    --cb-navy: #0a1628;
+}
+
+/* Article panel links — use accent blue instead of plain white */
+#main article a {
+    color: var(--cb-accent);
+    border-bottom-color: rgba(79, 172, 254, 0.4);
+}
+
+#main article a:hover {
+    color: #ffffff;
+    border-bottom-color: transparent;
+}
+
+/* Primary button — navy background with blue glow, white text restored */
+.button.primary {
+    background-color: var(--cb-accent-dark);
+    color: #ffffff !important;
+    box-shadow: inset 0 0 0 1px var(--cb-accent), 0 0 18px var(--cb-accent-glow);
+}
+
+.button.primary:hover {
+    background-color: #0077ee;
+    box-shadow: inset 0 0 0 1px #4facfe, 0 0 24px rgba(79, 172, 254, 0.25);
+}
+
+/* Skill chips — electric blue tint */
+.cb-chip {
+    border-color: rgba(79, 172, 254, 0.4);
+    background-color: rgba(79, 172, 254, 0.08);
+}
+
+/* Certification badges — lighter blue tint */
+.cb-badge {
+    border-color: rgba(79, 172, 254, 0.3);
+    background-color: rgba(79, 172, 254, 0.06);
+}
+
+/* Open job entry — blue left accent border */
+.cb-job[open] {
+    border-left-color: rgba(79, 172, 254, 0.6);
+}
+
+/* Blockquote — blue left accent */
+blockquote {
+    border-left-color: var(--cb-accent);
+}
+
+/* Nav link hover — subtle blue glow via background tint */
+#header nav ul li a:hover {
+    background-color: rgba(79, 172, 254, 0.1);
+    color: var(--cb-accent);
+}
+
+/* --- Nav icons --- */
+/* Ensure icon sits inline without breaking the fixed-height nav link layout */
+#header nav ul li a .icon {
+    margin-right: 0.25rem;
+    opacity: 0.65;
+    font-size: 0.8em;
+    /* vertical-align keeps the icon centred with the text baseline */
+    vertical-align: middle;
+    position: relative;
+    top: -1px;
+}
+
+/* --- Inline icons in panels (education, highlights, skill headings) --- */
+/* Prevents icons from sitting too high or too low relative to adjacent text */
+.cb-edu-item .icon,
+.cb-highlight-label .icon,
+.cb-skill-category .icon {
+    font-size: 0.9em;
+    vertical-align: middle;
+    position: relative;
+    top: -1px;
+    margin-right: 0.35rem;
+    opacity: 0.75;
+}
+
+/* --- Quick stats strip --- */
+.cb-quickstats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1.5rem;
+    margin-top: 1.5rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+    opacity: 0.65;
+}
+
+/* Suppress the vertical connector line that #header > * normally draws above itself */
+.cb-quickstats::before {
+    display: none !important;
+}
+
+.cb-quickstats a {
+    color: inherit;
+    border-bottom: none;
+}
+
+.cb-quickstats a:hover {
+    opacity: 0.85;
+    color: var(--cb-accent);
+}
+
+.cb-quickstats .icon {
+    margin-right: 0.3rem;
+}
+
+@media screen and (max-width: 480px) {
+    .cb-quickstats {
+        gap: 0.4rem 1rem;
+        font-size: 0.65rem;
     }
 }
 
