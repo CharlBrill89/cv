@@ -179,9 +179,13 @@ input, select, textarea {
 		font-weight: 600;
 		line-height: 1.5;
 		margin: 0 0 1rem 0;
-		text-transform: uppercase;
 		letter-spacing: 0.2rem;
 	}
+
+		h1.major, h2.major, h3.major, h4.major, h5.major, h6.major {
+			text-transform: uppercase;
+			letter-spacing: 0.5rem;
+		}
 
 		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 			color: inherit;
@@ -201,13 +205,13 @@ input, select, textarea {
 	h1 {
 		font-size: 2.25rem;
 		line-height: 1.3;
-		letter-spacing: 0.5rem;
+		letter-spacing: 0.05rem;
 	}
 
 	h2 {
 		font-size: 1.5rem;
 		line-height: 1.4;
-		letter-spacing: 0.5rem;
+		letter-spacing: 0.05rem;
 	}
 
 	h3 {
@@ -719,6 +723,7 @@ input, select, textarea {
 			}
 
 		}
+
 
 /* List */
 
@@ -2122,57 +2127,7 @@ blockquote {
     opacity: 0.7;
 }
 
-/* --- Skill bars --- */
-.cb-skillgroup {
-    margin-bottom: 0.5rem;
-}
-
-.cb-skill-bar-row {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    margin-bottom: 0.55rem;
-}
-
-.cb-skill-label {
-    font-size: 0.78rem;
-    width: 11rem;
-    flex-shrink: 0;
-    white-space: normal;
-    line-height: 1.35;
-}
-
-.cb-skill-track {
-    flex: 1;
-    height: 6px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 3px;
-    overflow: hidden;
-}
-
-.cb-skill-fill {
-    height: 100%;
-    width: 0;
-    border-radius: 3px;
-    background: linear-gradient(90deg, var(--cb-accent-dark, #0066cc), var(--cb-accent, #4facfe));
-    box-shadow: 0 0 8px rgba(79, 172, 254, 0.5);
-    transition: width 1.1s ease-out;
-}
-
-.cb-skill-pct {
-    font-size: 0.7rem;
-    width: 2.4rem;
-    text-align: right;
-    flex-shrink: 0;
-    opacity: 0.5;
-    letter-spacing: 0.04rem;
-}
-
 @media screen and (max-width: 480px) {
-    .cb-skill-label {
-        width: 8rem;
-        font-size: 0.73rem;
-    }
     .cb-article-footer {
         flex-direction: column;
         align-items: flex-start;
