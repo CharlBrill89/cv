@@ -124,9 +124,7 @@ details[open]>ul{animation:drop .35s ease both}
 .job-body:not([open]){padding-bottom:28px}
 .toggle-all{background:none;border:0;padding:0;cursor:pointer}
 .toggle-all:hover{color:var(--acc)}
-button.btn{background:none;color:inherit;font:inherit;cursor:pointer}
-.print-btn,.print-only{display:none}
-.js .print-btn{display:inline-block}
+.print-only{display:none}
 @media (prefers-reduced-motion:reduce){
 *,*::before,*::after{animation:none!important;transition:none!important}
 .js .reveal,.js .job .line{opacity:1;transform:none}
@@ -204,10 +202,9 @@ a{color:inherit}
 <p class="lede">I build the data platforms and pipelines that turn raw data into decisions people can rely on.</p>
 <div class="chips"><span class="chip">Microsoft Fabric</span><span class="chip">Databricks</span><span class="chip">AWS</span><span class="chip">Azure</span><span class="chip">PySpark</span><span class="chip">SQL</span><span class="chip">dbt</span><span class="chip">Power BI</span></div>
 <div class="btns">
-<a class="btn primary" href="https://drive.google.com/file/d/1GP0ZYQAYqImh8qYZ3ZlEsEh-K8rXhb8_/view?usp=sharing" target="_blank" rel="noopener">View résumé ↗</a>
+<a class="btn primary" href="charl-brill-resume.pdf" download="Charl-Brill-Resume.pdf">Download résumé ↓</a>
 <a class="btn" href="https://www.linkedin.com/in/charl-brill-33142166/" target="_blank" rel="noopener">LinkedIn ↗</a>
 <a class="btn" href="https://github.com/CharlBrill89" target="_blank" rel="noopener">GitHub ↗</a>
-<button class="btn print-btn" type="button">Save as PDF ↓</button>
 </div>
 <p class="print-only contact-line">charlbrill89.github.io/cv · linkedin.com/in/charl-brill-33142166 · github.com/CharlBrill89 · nod.cards/charl-brill-89</p>
 </div>
@@ -349,11 +346,10 @@ a{color:inherit}
   head.replaceChild(group,note);group.appendChild(note);group.appendChild(toggle);
   syncToggle();
 
-  // Save as PDF: open every role for print, then restore what the visitor had open
+  // Printing (Ctrl+P): open every role, then restore what the visitor had open
   var saved=null;
   addEventListener('beforeprint',function(){saved=jobs.map(function(d){return d.open});jobs.forEach(function(d){d.open=true})});
   addEventListener('afterprint',function(){if(saved)jobs.forEach(function(d,i){d.open=saved[i]});saved=null});
-  document.querySelector('.print-btn').addEventListener('click',function(){window.print()});
 
   // Show the back-to-top button once the hero has scrolled out of view
   var toTop=document.querySelector('.to-top'),hero=document.querySelector('.hero');
