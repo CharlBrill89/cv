@@ -105,6 +105,12 @@ a.card:hover{transform:translateY(-4px)}
 .js .reveal.in{opacity:1;transform:none}
 .js .job .line{transform:scaleY(0);transform-origin:top;transition:transform 1.1s ease .25s}
 .js .job.in .line{transform:scaleY(1)}
+.to-top{position:fixed;right:clamp(16px,3vw,32px);bottom:clamp(16px,3vw,32px);z-index:20;display:flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:50%;background:var(--card);border:1px solid var(--line2);color:var(--fg2);font-family:var(--mono);font-size:18px;box-shadow:0 6px 20px rgba(0,0,0,.35);transition:opacity .3s,transform .3s,border-color .2s,color .2s}
+.to-top:hover{border-color:var(--acc);color:var(--acc);transform:translateY(-2px)}
+.to-top:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+.js .to-top{opacity:0;transform:translateY(12px);pointer-events:none}
+.js .to-top.show{opacity:1;transform:none;pointer-events:auto}
+.js .to-top.show:hover{transform:translateY(-2px)}
 @media (prefers-reduced-motion:reduce){
 *,*::before,*::after{animation:none!important;transition:none!important}
 .js .reveal,.js .job .line{opacity:1;transform:none}
@@ -264,8 +270,21 @@ nav .links{display:none}
 </div></section>
 
 <footer><div class="wrap"><span>© Charl Brill 2026</span><div class="links"><a href="https://www.linkedin.com/in/charl-brill-33142166/" target="_blank" rel="noopener">linkedin</a><a href="https://github.com/CharlBrill89" target="_blank" rel="noopener">github</a><a href="https://nod.cards/charl-brill-89" target="_blank" rel="noopener">nodcard</a></div></div></footer>
+<a class="to-top" href="#top" aria-label="Back to top" title="Back to top">↑</a>
 <script>
 (function(){
+  // Show the back-to-top button once the hero has scrolled out of view
+  var toTop=document.querySelector('.to-top'),hero=document.querySelector('.hero');
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(e){toTop.classList.toggle('show',!e[0].isIntersecting)}).observe(hero);
+  }else{toTop.classList.add('show')}
+  toTop.addEventListener('click',function(e){
+    e.preventDefault();
+    window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+    history.replaceState(null,'',location.pathname);
+    document.querySelector('.brand').focus({preventScroll:true});
+  });
+
   // Fade sections in as they scroll into view; siblings in a grid/list are staggered
   var els=[].slice.call(document.querySelectorAll('section:not(.hero) .head,.about>*,.job,.card,.edu-row,.certs h3,.cert,.contact .wrap>*'));
   els.forEach(function(el){
