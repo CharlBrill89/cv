@@ -111,6 +111,20 @@ a.card:hover{transform:translateY(-4px)}
 .js .to-top{opacity:0;transform:translateY(12px);pointer-events:none}
 .js .to-top.show{opacity:1;transform:none;pointer-events:auto}
 .js .to-top.show:hover{transform:translateY(-2px)}
+@keyframes drop{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+summary.role{list-style:none;cursor:pointer;display:flex;align-items:center;flex-wrap:wrap;gap:4px 12px}
+summary.role::-webkit-details-marker{display:none}
+summary.role::after{content:'+';display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border:1px solid var(--line2);border-radius:5px;font-family:var(--mono);font-size:14px;color:var(--dim);transition:color .2s,border-color .2s}
+details[open]>summary.role::after{content:'−'}
+summary.role:hover::after{color:var(--acc);border-color:var(--acc)}
+summary.role:focus-visible{outline:2px solid var(--acc);outline-offset:4px;border-radius:4px}
+.hint{font-family:var(--mono);font-size:12px;color:var(--dim)}
+details[open] .hint{display:none}
+details[open]>ul{animation:drop .35s ease both}
+.job-body:not([open]){padding-bottom:28px}
+.toggle-all{background:none;border:0;padding:0;cursor:pointer}
+.toggle-all:hover{color:var(--acc)}
+.print-only{display:none}
 @media (prefers-reduced-motion:reduce){
 *,*::before,*::after{animation:none!important;transition:none!important}
 .js .reveal,.js .job .line{opacity:1;transform:none}
@@ -130,6 +144,49 @@ nav .links{display:none}
 .grid4{grid-template-columns:1fr}
 .edu-row{grid-template-columns:1fr;gap:4px}.edu-row .d{text-align:left}
 }
+@media print{
+:root{--bg:#fff;--card:#fff;--line:#d9dee7;--line2:#c3cad6;--fg:#111827;--fg2:#1f2937;--mut:#374151;--mut2:#374151;--dim:#4b5563;--acc:#1d4ed8}
+@page{margin:14mm 14mm 16mm}
+html{scroll-behavior:auto}
+body{font-size:10.5pt;line-height:1.45}
+*,*::before,*::after{animation:none!important;transition:none!important}
+nav,.to-top,.btns,.toggle-all,summary.role::after,.hint,footer,#contact{display:none!important}
+.js .reveal{opacity:1!important;transform:none!important}
+.js .job .line{transform:none!important}
+.print-only{display:block}
+.contact-line{margin:10px 0 0;font-family:var(--mono);font-size:8.5pt;color:var(--dim)}
+.wrap{max-width:none;padding:0}
+section{padding:14px 0;border-top:1px solid var(--line)}
+.hero{padding-top:0}
+.hero .wrap{grid-template-columns:minmax(0,1fr) 110px;gap:24px}
+.portrait{width:110px;height:110px;border-radius:10px}
+h1{font-size:30pt;margin:8px 0}
+.lede{font-size:12pt}
+.chips{margin-top:12px;font-size:8pt}.chip{padding:3px 8px}
+h2{font-size:16pt}
+.head{margin-bottom:12px}
+.about{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:28px}
+.quote{font-size:13pt;margin-bottom:10px}
+.about p{font-size:10pt;line-height:1.5;margin-bottom:8px}
+dl{gap:10px}dd{font-size:10pt}
+.job{grid-template-columns:18px minmax(0,1fr) 150px;gap:14px;break-inside:avoid}
+.job-body,.job-body:not([open]){padding-bottom:14px;grid-column:2}
+.rail{grid-row:auto}
+.meta{grid-column:3;grid-row:1;text-align:right;padding:2px 0 0}
+.hero .wrap img.portrait{order:0;width:110px;height:110px}
+.edu-row{grid-template-columns:minmax(0,1fr) 110px;gap:16px}.edu-row .d{text-align:right}
+.role{font-size:12pt}
+.job li{font-size:9.5pt;line-height:1.4}
+.job ul{gap:3px;margin-top:6px}
+.meta{font-size:8.5pt}
+.grid4,.grid3{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.card{padding:12px;gap:8px;break-inside:avoid}
+.edu-row{padding:10px 0;break-inside:avoid}.edu-row .t{font-size:11pt}.edu-row .s{font-size:9.5pt}
+.certs{margin-top:18px}.cert{padding:6px 0;font-size:10pt}
+.post .title{font-size:11pt}.post .blurb{font-size:9pt}
+h2,.head{break-after:avoid}
+a{color:inherit}
+}
 </style>
 </head>
 <body>
@@ -145,10 +202,11 @@ nav .links{display:none}
 <p class="lede">I build the data platforms and pipelines that turn raw data into decisions people can rely on.</p>
 <div class="chips"><span class="chip">Microsoft Fabric</span><span class="chip">Databricks</span><span class="chip">AWS</span><span class="chip">Azure</span><span class="chip">PySpark</span><span class="chip">SQL</span><span class="chip">dbt</span><span class="chip">Power BI</span></div>
 <div class="btns">
-<a class="btn primary" href="https://drive.google.com/file/d/1GP0ZYQAYqImh8qYZ3ZlEsEh-K8rXhb8_/view?usp=sharing" target="_blank" rel="noopener">View résumé ↗</a>
+<a class="btn primary" href="charl-brill-resume.pdf" download="Charl-Brill-Resume.pdf">Download résumé ↓</a>
 <a class="btn" href="https://www.linkedin.com/in/charl-brill-33142166/" target="_blank" rel="noopener">LinkedIn ↗</a>
 <a class="btn" href="https://github.com/CharlBrill89" target="_blank" rel="noopener">GitHub ↗</a>
 </div>
+<p class="print-only contact-line">charlbrill89.github.io/cv · linkedin.com/in/charl-brill-33142166 · github.com/CharlBrill89 · nod.cards/charl-brill-89</p>
 </div>
 <img class="portrait" src="images/charl-portrait.jpg" alt="Charl Brill">
 </div></section>
@@ -173,51 +231,51 @@ nav .links{display:none}
 <section id="work"><div class="wrap">
 <div class="head"><h2>Lineage</h2><span class="note">bronze → silver → gold, 2011 → now</span></div>
 <div>
-<div class="job"><div class="rail"><span class="dot"></span><span class="line"></span></div><div class="job-body"><div class="role">Senior Data Engineer <a class="co" href="https://www.dataelephant.com" target="_blank" rel="noopener">· Data Elephant</a></div><ul>
+<div class="job"><div class="rail"><span class="dot"></span><span class="line"></span></div><details class="job-body" open><summary class="role">Senior Data Engineer <a class="co" href="https://www.dataelephant.com" target="_blank" rel="noopener">· Data Elephant</a><span class="hint">5 highlights</span></summary><ul>
 <li>Translate business requirements into technical data solutions across AWS, Azure, and Databricks cloud platforms; build end-to-end ETL/ELT pipelines using SQL, Python, PySpark, and Glue.</li>
 <li>Join pre-sales meetings, write client proposals, and represent the company at technical networking events.</li>
 <li>Work alongside data scientists, MLOps engineers, and full-stack developers in agile, DevOps-style teams.</li>
 <li>Run AI/ML pilots and proofs of concept, and keep my Microsoft and Databricks certifications current.</li>
-<li>Help hire and mentor new people as the team grows.</li></ul></div><div class="meta">Jul 2025 – Present<br>Vancouver, Remote</div></div>
+<li>Help hire and mentor new people as the team grows.</li></ul></details><div class="meta">Jul 2025 – Present<br>Vancouver, Remote</div></div>
 
-<div class="job"><div class="rail"><span class="dot"></span><span class="line"></span></div><div class="job-body"><div class="role">Data Engineer <a class="co" href="https://www.longviewsystems.com/" target="_blank" rel="noopener">· Long View Systems</a></div><ul>
+<div class="job"><div class="rail"><span class="dot"></span><span class="line"></span></div><details class="job-body"><summary class="role">Data Engineer <a class="co" href="https://www.longviewsystems.com/" target="_blank" rel="noopener">· Long View Systems</a><span class="hint">6 highlights</span></summary><ul>
 <li>Co-developed a deployable framework to ingest data from multiple source systems and streamline reporting using Fabric, PySpark, SparkSQL, and PowerBI.</li>
 <li>Implemented end-to-end medallion architecture analytics on Microsoft Fabric Lakehouse with Azure Data Factory.</li>
 <li>Built a call metrics monitoring solution from ingestion to reporting using Microsoft Fabric and ADF.</li>
 <li>Investigated PowerBI migration options and built a REST API monitoring solution for PowerBI deployments.</li>
 <li>Designed an inventory monitoring solution across the supply chain using Fabric, ADF, Lakehouse modelling, and PowerBI.</li>
-<li>Developed ETL pipelines in Databricks with SQL; built a Python module for AES encryption key rotation via Azure Key Vault.</li></ul></div><div class="meta">Oct 2023 – Jun 2025<br>Vancouver, Hybrid</div></div>
+<li>Developed ETL pipelines in Databricks with SQL; built a Python module for AES encryption key rotation via Azure Key Vault.</li></ul></details><div class="meta">Oct 2023 – Jun 2025<br>Vancouver, Hybrid</div></div>
 
-<div class="job"><div class="rail"><span class="dot"></span><span class="line"></span></div><div class="job-body"><div class="role">Head of Data Science &amp; Analytics <a class="co" href="https://www.agrigateone.com/" target="_blank" rel="noopener">· AgrigateOne</a></div><ul>
+<div class="job"><div class="rail"><span class="dot"></span><span class="line"></span></div><details class="job-body"><summary class="role">Head of Data Science &amp; Analytics <a class="co" href="https://www.agrigateone.com/" target="_blank" rel="noopener">· AgrigateOne</a><span class="hint">7 highlights</span></summary><ul>
 <li>Product owner and lead for all data analytics and data science projects.</li>
 <li>Wrote and shared project roadmaps and kept stakeholder expectations realistic.</li>
 <li>Agile product management using Jira, Confluence, Shape Up, and Git.</li>
 <li>Designed BI solution on Metabase and PostgreSQL for platform stakeholders (growers and buyers).</li>
 <li>Led the company's data strategy and digital transformation work.</li>
 <li>Architected data warehouse on AWS (Lambda, RDS, S3).</li>
-<li>Delivered ML and process automation solutions in Python.</li></ul></div><div class="meta">Aug 2020 – Oct 2023</div></div>
+<li>Delivered ML and process automation solutions in Python.</li></ul></details><div class="meta">Aug 2020 – Oct 2023</div></div>
 
-<div class="job"><div class="rail"><span class="dot"></span><span class="line"></span></div><div class="job-body"><div class="role">Business Intelligence Consultant <a class="co" href="https://decisioninc.com/" target="_blank" rel="noopener">· Decision Inc.</a></div><ul>
+<div class="job"><div class="rail"><span class="dot"></span><span class="line"></span></div><details class="job-body"><summary class="role">Business Intelligence Consultant <a class="co" href="https://decisioninc.com/" target="_blank" rel="noopener">· Decision Inc.</a><span class="hint">6 highlights</span></summary><ul>
 <li>Deployed a Big Data Qlik model for a major South African retailer on AWS Redshift.</li>
 <li>Advanced analytics using Alteryx, KNIME, and Python: operations injury driver analysis, sales forecasting, demand planning, and procurement spend analysis.</li>
 <li>Audited the information landscape of clients in healthcare, retail, manufacturing, and banking so their data strategy matched their corporate strategy.</li>
 <li>BI development in PowerBI, Qlik Sense, QlikView, and Tableau.</li>
 <li>Business analysis and requirements gathering using Agile methodology.</li>
-<li>Started and led a company-wide data literacy programme.</li></ul></div><div class="meta">Apr 2019 – Jul 2020<br>Johannesburg, SA</div></div>
+<li>Started and led a company-wide data literacy programme.</li></ul></details><div class="meta">Apr 2019 – Jul 2020<br>Johannesburg, SA</div></div>
 
-<div class="job"><div class="rail"><span class="dot"></span><span class="line"></span></div><div class="job-body"><div class="role">Business Analyst <span class="co">· Burlington Strategy Advisors</span></div><ul>
+<div class="job"><div class="rail"><span class="dot"></span><span class="line"></span></div><details class="job-body"><summary class="role">Business Analyst <span class="co">· Burlington Strategy Advisors</span><span class="hint">4 highlights</span></summary><ul>
 <li>Built a property development financial model forecasting cash flows using Excel VBA.</li>
 <li>Developed a techno-financial model for a large-scale trigeneration project (heated water, chilled water, and electricity generation).</li>
 <li>Designed a capital portfolio optimisation algorithm for one of South Africa's largest capital portfolios using Excel VBA and C#.</li>
-<li>Implemented a large-scale KPI measurement system using Excel VBA.</li></ul></div><div class="meta">Jul 2014 – Sep 2017</div></div>
+<li>Implemented a large-scale KPI measurement system using Excel VBA.</li></ul></details><div class="meta">Jul 2014 – Sep 2017</div></div>
 
-<div class="job"><div class="rail"><span class="dot"></span><span class="line"></span></div><div class="job-body"><div class="role">Project Engineer (Head of Design Office) <a class="co" href="https://www.mintek.co.za" target="_blank" rel="noopener">· Mintek</a></div><ul>
+<div class="job"><div class="rail"><span class="dot"></span><span class="line"></span></div><details class="job-body"><summary class="role">Project Engineer (Head of Design Office) <a class="co" href="https://www.mintek.co.za" target="_blank" rel="noopener">· Mintek</a><span class="hint">3 highlights</span></summary><ul>
 <li>Led the design office and managed new projects focused on pilot plant equipment design and site layouts.</li>
 <li>Delivered designs using AutoCAD, Inventor, and SolidWorks.</li>
-<li>Researched, designed, and procured mining equipment for small-scale mining clients.</li></ul></div><div class="meta">Jan 2013 – Jun 2014</div></div>
+<li>Researched, designed, and procured mining equipment for small-scale mining clients.</li></ul></details><div class="meta">Jan 2013 – Jun 2014</div></div>
 
-<div class="job"><div class="rail"><span class="dot"></span><span class="line"></span></div><div class="job-body"><div class="role">Mechanical Engineering Intern <a class="co" href="https://www.mintek.co.za" target="_blank" rel="noopener">· Mintek</a></div><ul>
-<li>Designed and optimised granite cutting equipment; presented final design to Mintek CEO and supervisors.</li></ul></div><div class="meta">Nov 2011 – Jan 2012</div></div>
+<div class="job"><div class="rail"><span class="dot"></span><span class="line"></span></div><details class="job-body"><summary class="role">Mechanical Engineering Intern <a class="co" href="https://www.mintek.co.za" target="_blank" rel="noopener">· Mintek</a><span class="hint">1 highlight</span></summary><ul>
+<li>Designed and optimised granite cutting equipment; presented final design to Mintek CEO and supervisors.</li></ul></details><div class="meta">Nov 2011 – Jan 2012</div></div>
 </div>
 </div></section>
 
@@ -273,6 +331,26 @@ nav .links{display:none}
 <a class="to-top" href="#top" aria-label="Back to top" title="Back to top">↑</a>
 <script>
 (function(){
+  // Lineage: "expand all" toggle for the collapsible roles
+  var jobs=[].slice.call(document.querySelectorAll('#work details'));
+  var head=document.querySelector('#work .head'),note=head.querySelector('.note');
+  var toggle=document.createElement('button');
+  toggle.type='button';toggle.className='note toggle-all';
+  function syncToggle(){toggle.textContent=jobs.every(function(d){return d.open})?'collapse all':'expand all'}
+  toggle.addEventListener('click',function(){
+    var open=!jobs.every(function(d){return d.open});
+    jobs.forEach(function(d){d.open=open});
+  });
+  jobs.forEach(function(d){d.addEventListener('toggle',syncToggle)});
+  var group=document.createElement('span');group.style.cssText='display:flex;gap:20px;align-items:baseline;flex-wrap:wrap';
+  head.replaceChild(group,note);group.appendChild(note);group.appendChild(toggle);
+  syncToggle();
+
+  // Printing (Ctrl+P): open every role, then restore what the visitor had open
+  var saved=null;
+  addEventListener('beforeprint',function(){saved=jobs.map(function(d){return d.open});jobs.forEach(function(d){d.open=true})});
+  addEventListener('afterprint',function(){if(saved)jobs.forEach(function(d,i){d.open=saved[i]});saved=null});
+
   // Show the back-to-top button once the hero has scrolled out of view
   var toTop=document.querySelector('.to-top'),hero=document.querySelector('.hero');
   if('IntersectionObserver' in window){
